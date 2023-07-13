@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "20315212185",
+    "project_id": "sisi-7159c",
+    "storage_bucket": "sisi-7159c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20315212185:android:1270358fb4a229aeabab08",
+        "android_client_info": {
+          "package_name": "com.sisi.flooding"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "20315212185-hbjpb67adlggpv5u3ps9gp0qvd5hem8j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sisi.flooding",
+            "certificate_hash": "6431c7bddf232804b622327694964926cdfcbbcc"
+          }
+        },
+        {
+          "client_id": "20315212185-nneqgg3iiuej5mll1lotf0srk7fjb1ht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI7qLIvkfkfNZaF8fd5PmeiF3W9mxmZrE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20315212185-nneqgg3iiuej5mll1lotf0srk7fjb1ht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
