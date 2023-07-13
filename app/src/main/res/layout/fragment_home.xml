@@ -94,7 +94,60 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="청파동의 침수 건수 결과"
+            android:layout_marginStart="@dimen/size_43"
+            android:layout_marginTop="111dp"
+            android:fontFamily="@font/suit_semibold"
+            android:textColor="#173F6C"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchLayout" />
+
         <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="82dp"
+            android:layout_height="82dp"
+            android:layout_marginStart="@dimen/size_43"
+            android:src="@drawable/iv_s"
+            android:layout_marginTop="@dimen/size_18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:fontFamily="@font/suit_semibold"
+            android:text="순위 : 128위"
+            android:textColor="#173F6C"
+            android:textSize="18sp"
+            android:layout_marginStart="@dimen/size_18"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/suit_semibold"
+            android:text="침수 주택 건수 : 12건"
+            android:textColor="#173F6C"
+            android:textSize="18sp"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginStart="@dimen/size_18"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <ImageView
+            android:id="@+id/map"
             android:layout_width="360dp"
             android:layout_height="260dp"
             android:src="@drawable/iv_map"
@@ -102,7 +155,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchLayout" />
-
 
 
 

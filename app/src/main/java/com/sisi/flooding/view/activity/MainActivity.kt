@@ -3,6 +3,7 @@ package com.sisi.flooding.view.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.naver.maps.map.NaverMapSdk
+import com.sisi.flooding.GlobalApplication
 import com.sisi.flooding.R
 import com.sisi.flooding.databinding.ActivityMainBinding
 import com.sisi.flooding.view.fragment.HomeFragment
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        GlobalApplication.prefs.setString("viewMap", "0")
 
 
         binding = ActivityMainBinding.inflate(layoutInflater)

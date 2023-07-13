@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.annotation.UiThread
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
@@ -87,79 +88,25 @@ class NaverMapFragment : BaseFragment<FragmentNaverMapBinding>(), OnMapReadyCall
         NaverMapSdk.getInstance(requireContext()).client =
             NaverMapSdk.NaverCloudPlatformClient("2s7rl7li7r")
 
-//        binding.cardView.visibility = View.GONE
+        val searchEditText = binding.searchText
 
-//        lifecycleScope.launch {
-//            try {
-//                val response = retService.getMap(myLatitude.toDouble(), myLongitude.toDouble())
-//                if (response.isSuccessful) {
-//                    Log.d(
-//                        "Naver map 성공 보낸 data",
-//                        "Success, latitude: $myLatitude, longitude: $myLongitude"
-//                    )
-//                    val mapData = response.body()?.markerInfoList
-//
-//                    if (mapData != null) {
-//                        for (markerInfo in mapData) {
-//                            val marker = Marker()
-//                            marker.position = LatLng(markerInfo.latitude, markerInfo.longitude)
-//                            marker.tag = markerInfo.id
-//
-//                            // Customize marker appearance
-//                            val customIcon = OverlayImage.fromResource(R.drawable.ic_my_mark)
-//                            marker.icon = customIcon
-//
-//                            // 마커 클릭 이벤트 리스너 설정
-//                            marker.setOnClickListener { overlay ->
-//                                if (overlay is Marker) {
-//                                    val markerId = overlay.tag as? Int
-//                                    // 마커 클릭 시 실행 동작
-//                                    markerId?.let { id ->
-//                                        binding.cardView.visibility = View.VISIBLE
-//                                        fetchMarkerData(id, myLatitude.toDouble(), myLongitude.toDouble())
-//                                        markerIdLiveData.value = id
-//                                    }
-//                                }
-//                                true
-//                            }
-//
-//                            marker.map = naverMap
-//                        }
-//                    }
-//                } else {
-//                    // Error handling
-//                    Log.e("Naver map 통신 실패", "Error: ${response.code()} ${response.message()}")
-//                }
-//            } catch (e: Exception) {
-//                // Exception handling
-//                Log.e("Naver map 통신 실패2", "Exception: ${e.message}")
-//            }
-//        }
+        searchEditText.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                val searchText = searchEditText.text.toString()
+                if (searchText == "서초역") {
+                    binding.tvCategory.text = "현재 강수량 : 58mm"
+                    binding.levelCircle.setImageResource(R.drawable.iv_3)
+                    binding.ivImage.setImageResource(R.drawable.level3)
+                    val cameraUpdate = CameraUpdate.scrollTo(
+                        LatLng(37.4918183541622, 127.007563912423)
+                    )
+                    naverMap.moveCamera(cameraUpdate)
+                }
+            }
+            false
+        }
 
-        // Observe the marker data LiveData
-//        markerDataLiveData.observe(viewLifecycleOwner) { markerData ->
-//            // Update UI with marker data
-////            binding.tvName.text = markerData.name.chunked(20).joinToString("\n")
-////            binding.tvAddress.text = markerData.address.chunked(28).joinToString("\n")
-////            binding.tvCategory.text = markerData.category
-////            binding.distance.text = markerData.distance.toString()
-//            if (!markerData?.imageLink.isNullOrEmpty()) {
-////                Glide.with(view)
-////                    .load(markerData?.imageLink)
-////                    .into(binding.ivRestaurantImage)
-//            }
-//        }
-//        // Observe the marker ID LiveData
-//        markerIdLiveData.observe(viewLifecycleOwner) { markerId ->
-//            placeId = markerId
-//        }
-//        binding.cardView.setOnClickListener{
-//            GlobalApplication.prefs.setString("placeId","$placeId")
-////            parentFragmentManager.beginTransaction()
-////                .replace(R.id.main_frm, DetailRestaurantFragment())
-////                .addToBackStack(null)
-////                .commit()
-//        }
+//
     }
 
     // Check if permissions are granted
